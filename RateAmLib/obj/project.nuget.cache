@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "96GOZQRnjXMTb+IPFQ0x22tAmmabvIav4vGhpl5eVfntmj6gxCVLnbom851NlB5JvPXDnlFUem2hcAzqX9Pt/w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\khaza\\source\\repos\\RatesAm\\RateAmLib\\RateAmLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\khaza\\.nuget\\packages\\htmlagilitypack\\1.11.57\\htmlagilitypack.1.11.57.nupkg.sha512"
+  ],
+  "logs": []
+}

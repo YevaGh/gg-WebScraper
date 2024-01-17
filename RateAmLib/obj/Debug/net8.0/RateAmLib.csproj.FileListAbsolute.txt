@@ -1,0 +1,12 @@
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\RateAmLib.deps.json
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\RateAmLib.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\RateAmLib.pdb
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.csproj.AssemblyReference.cache
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.AssemblyInfoInputs.cache
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.AssemblyInfo.cs
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.csproj.CoreCompileInputs.cache
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\refint\RateAmLib.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.pdb
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\ref\RateAmLib.dll
