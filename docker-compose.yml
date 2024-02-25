@@ -1,0 +1,39 @@
+version: "3.9"
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  mypostgres:
+    image: postgres:15
+    ports:
+      - "6543:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: erikeva2
+      POSTGRES_DB: fromdocker
+  myredis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  # myterminal:
+  #   build: 
+  #     context: ./RateAmTerminal 
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - mypostgres
+  #     - myredis
+  #   environment:
+  #     ConnectionStrings__RateDb: "Host=mypostgres;Port=6543;Database=example;Username=example;Password=example"
+  # myapi:
+  #   build: ./RateAmApi
+  #   ports:
+  #    - "5002:5002"
+  #   depends_on:
+  #     - myterminal
+  myweb:
+    build: ./RateAmWeb
+    ports:
+     - "4200:4200"
+    
