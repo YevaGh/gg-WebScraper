@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace RateAmLib
 {
@@ -12,7 +9,7 @@ namespace RateAmLib
         public string Name { get; set; }
         public string IconURL { get; set; }
 
-        public List<Rate> Rates { get; set; } = new List<Rate>();
+        //public List<Rate> Rates { get; set; } = new List<Rate>();
         
     }
 }

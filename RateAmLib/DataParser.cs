@@ -1,48 +1,63 @@
 ﻿using HtmlAgilityPack;
+using RateAmLib.Utils;
+using RateAmLib.Utils.Abtract;
 
 namespace RateAmLib
 {
     public class DataParser
     {
-
         public static string[,] ScrapeRateAm()
         {
-            string url = "https://rate.am/en/armenian-dram-exchange-rates/banks/non-cash";
-            var httpClient = new HttpClient();
-            var html = httpClient.GetStringAsync(url).Result;
-            var htmlDocument = new HtmlDocument();
-            htmlDocument.LoadHtml(html);
+            //IWebClient webClient = new HttpWebClient();
+            //var html = webClient.GetPageAsync().Result;
 
-            //menak table i row nery
-            List<HtmlNode> tableHtml = htmlDocument.DocumentNode.SelectSingleNode("//table[@class='rb']")
-            .Descendants("tr")
-            .Skip(2)
-            .Where(tr => tr.Elements("td").Count() > 1)
-            .ToList();
+            //IXmlParser xmlParser = new XmlDocumentParser();
+            //var xmlNode = xmlParser.GetRatesTableNode(html);
 
-   ;
+            /* IHtmlTableParser htmlParser = new HtmlTableParser();
+             var table = htmlParser.ParseHtmlTable(xmlNode);
 
-            string[,] TableData = new string[18,10];
 
-            for (int i = 0; i < 18; i++)
-            {
-                var row = tableHtml[i].SelectNodes("th|td").ToList();
-                var k = 0;
+             ITableToObjectParser tableParser = new TableToObjectParser();
+             var rates = tableParser.GetRates(table);
 
-                for (int j = 0; j < 13; j++)
-                {
-                    if(j==0 || j==2 || j==3)
-                    {
-                        continue;
-                    }
-                   
-                        TableData[i, k] = row[j].InnerText.Trim();
-                        k++;
-                   
-                }
-            }
 
-            return TableData;
+             var htmlDocument = new HtmlDocument();
+             htmlDocument.LoadHtml(html);
+
+
+
+             //menak table i row nery
+             List<HtmlNode> tableHtml = htmlDocument.DocumentNode.SelectSingleNode("//table[@class='rb']")
+             .Descendants("tr")
+             .Skip(2)
+             .Where(tr => tr.Elements("td").Count() > 1)
+             .ToList();
+
+    ;        
+
+             string[,] TableData = new string[18,10];
+
+             for (int i = 0; i < 18; i++)
+             {
+                 var row = tableHtml[i].SelectNodes("th|td").ToList();
+                 var k = 0;
+
+                 for (int j = 0; j < 13; j++)
+                 {
+                     if(j==0 || j==2 || j==3)
+                     {
+                         continue;
+                     }
+
+                         TableData[i, k] = row[j].InnerText.Trim();
+                         k++;
+
+                 }
+             }
+
+             return TableData;*/
+            return null;
 
         }
 
@@ -71,11 +86,11 @@ namespace RateAmLib
                    var sell_rate = data[i, j+1];
                    var currency = Currencies.CurrenciesSource.First(obj=>obj.Id == cur_id);
 
-                   Rate rate = new Rate() { Id = rate_id++, BuyRate = buy_rate, SellRate = sell_rate, Bank = bank, BankId = bank.Id, Currency = currency, CurrencyId = cur_id };
+                   //Rate rate = new Rate() { Id = rate_id++, BuyRate = buy_rate, SellRate = sell_rate, Bank = bank, BankId = bank.Id, Currency = currency, CurrencyId = cur_id };
 
-                   rates.Add(rate);
-                   bank.Rates.Add(rate);
-                   currency.Rates.Add(rate); 
+                   //rates.Add(rate);
+                   //bank.Rates.Add(rate);
+                   //currency.Rates.Add(rate); 
                    
                 }
                 i++;

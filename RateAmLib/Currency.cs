@@ -1,4 +1,6 @@
-﻿namespace RateAmLib
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RateAmLib
 {
     public class Currency
     {
@@ -6,7 +8,7 @@
         public string Name { get; set; }
         public string Symbol {  get; set; }
         public string IconURL {  get; set; }
-        public List<Rate> Rates { get; set; } = new List<Rate>();
+        //public List<Rate> Rates { get; set; } = new List<Rate>();
 
     }
 }

@@ -10,3 +10,12 @@ C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.dll
 C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\refint\RateAmLib.dll
 C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.pdb
 C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\ref\RateAmLib.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.sourcelink.json
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\RateAmLib.runtimeconfig.json
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.genruntimeconfig.cache
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\RateAmData.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\RateAmData.pdb
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.csproj.CopyComplete
