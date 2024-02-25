@@ -1,0 +1,6 @@
+@RatesAmApi_HostAddress = http://localhost:5285
+
+GET {{RatesAmApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
