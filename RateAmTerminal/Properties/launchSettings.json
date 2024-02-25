@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RateAmTerminal": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

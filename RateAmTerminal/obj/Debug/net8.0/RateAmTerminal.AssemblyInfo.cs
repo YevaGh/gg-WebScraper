@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RateAmTerminal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f74cd43d3d83544504254f9f14409248a9ed871")]
 [assembly: System.Reflection.AssemblyProductAttribute("RateAmTerminal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RateAmTerminal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
