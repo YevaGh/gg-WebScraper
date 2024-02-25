@@ -1,0 +1,15 @@
+C:\Users\khaza\source\repos\RatesAm\RateAmData\bin\Release\net8.0\RateAmData.deps.json
+C:\Users\khaza\source\repos\RatesAm\RateAmData\bin\Release\net8.0\RateAmData.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmData\bin\Release\net8.0\RateAmData.pdb
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.csproj.AssemblyReference.cache
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.AssemblyInfoInputs.cache
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.AssemblyInfo.cs
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.csproj.CoreCompileInputs.cache
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.sourcelink.json
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\refint\RateAmData.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.pdb
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\ref\RateAmData.dll
+C:\Users\khaza\source\repos\RatesAm\RateAmData\bin\Release\net8.0\RateAmData.runtimeconfig.json
+C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Release\net8.0\RateAmData.genruntimeconfig.cache
