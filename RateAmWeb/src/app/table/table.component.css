@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td:hover {
+  background-color: lightgray; 
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+}
+
+.bank-column {
+  text-align:start;
+  background-color:ButtonHighlight;
+}
+
+.image-size {
+  width: 30px !important;
+  height: 15px !important;
+}
+
+/* Add a parent class to the table to increase specificity */
+.custom-table .mat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table .mat-header-cell,
+.custom-table .mat-cell {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: red; /* Set background color to red */
+  box-sizing: border-box;
+}
+
+.custom-table .mat-header-cell {
+  font-weight: bold;
+}
+
+.custom-table .mat-row:hover {
+  background-color: #f5f5f5;
+}
+
+/*host menak et komponentina verabervum, ng-deep : arajnayin style a sarqum*/
+:host ::ng-deep .mat-sort-header-container{
+    justify-content:center;
+}
+
+:host ::ng-deep .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+  background-color: #FFC0CB;
+}
+
+
+.darken {
+  color: #000; /* Default color */
+}
+
+.darken-max {
+  color: #555; /* Darkened color */
+}
