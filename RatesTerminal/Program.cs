@@ -51,7 +51,6 @@ using (var serviceScope = host.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        // Log any exceptions or handle errors as needed
         Console.WriteLine($"An error occurred: {ex.Message}");
     }
 

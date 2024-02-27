@@ -21,7 +21,7 @@ namespace RatesTerminal
             services.AddScoped<IXmlParser, XmlDocumentParser>();
             services.AddScoped<IHtmlTableParser, HtmlTableParser>();
             services.AddScoped<ITableToObjectParser, TableToObjectParser>();
-            services.AddScoped<RateAmDataContext>();
+            services.AddDbContext<RateAmDataContext>();
             services.AddScoped<WorkerService>();
 
             return services;
@@ -38,7 +38,7 @@ namespace RatesTerminal
                     services.AddScoped<IXmlParser, XmlDocumentParser>();
                     services.AddScoped<IHtmlTableParser, HtmlTableParser>();
                     services.AddScoped<ITableToObjectParser, TableToObjectParser>();
-                    services.AddScoped<RateAmDataContext>();
+                    services.AddDbContext<RateAmDataContext>();
                     services.AddScoped<WorkerService>();
                 });
     }

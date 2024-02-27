@@ -130,10 +130,10 @@ C:\Users\khaza\source\repos\RatesAm\RatesTerminal\bin\Debug\net8.0\RateAmData.dl
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\bin\Debug\net8.0\RateAmLib.dll
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\bin\Debug\net8.0\RateAmData.pdb
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\bin\Debug\net8.0\RateAmLib.pdb
-C:\Users\khaza\source\repos\RatesAm\RatesTerminal\obj\Debug\net8.0\RatesTerminal.csproj.CopyComplete
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\obj\Debug\net8.0\RatesTerminal.dll
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\obj\Debug\net8.0\refint\RatesTerminal.dll
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\obj\Debug\net8.0\RatesTerminal.pdb
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\obj\Debug\net8.0\RatesTerminal.genruntimeconfig.cache
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\obj\Debug\net8.0\ref\RatesTerminal.dll
 C:\Users\khaza\source\repos\RatesAm\RatesTerminal\bin\Debug\net8.0\appsettings.json
+C:\Users\khaza\source\repos\RatesAm\RatesTerminal\obj\Debug\net8.0\RatesTerminal.csproj.CopyComplete
