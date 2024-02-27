@@ -7,7 +7,7 @@ using RateAmTerminal;
 using Microsoft.Extensions.Hosting;
 
 
-internal class Program
+public class Program
 {
     private static void Main(string[] args)
     {

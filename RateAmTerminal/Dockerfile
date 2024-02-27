@@ -1,26 +1,25 @@
+#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/runtime:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 5002
-
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["RatesAmApi/RatesAmApi.csproj", "RatesAmApi/"]
-COPY ["RateAmLib/RateAmLib.csproj", "RateAmLib/"]
+COPY ["RateAmTerminal/RatesAmTerminal.csproj", "RateAmTerminal/"]
 COPY ["RateAmData/RateAmData.csproj", "RateAmData/"]
-RUN dotnet restore "./RatesAmApi/./RatesAmApi.csproj"
+COPY ["RateAmLib/RateAmLib.csproj", "RateAmLib/"]
+RUN dotnet restore "./RateAmTerminal/./RatesAmTerminal.csproj"
 COPY . .
-WORKDIR "/src/RatesAmApi"
-RUN dotnet build "./RatesAmApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/RateAmTerminal"
+RUN dotnet build "./RatesAmTerminal.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./RatesAmApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./RatesAmTerminal.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "RatesAmApi.dll"]
+ENTRYPOINT ["dotnet", "RatesAmTerminal.dll"]
