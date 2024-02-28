@@ -2,10 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RateAmData.Entities;
-using RateAmData.Repositories;
-using System.Xml.Linq;
 
-#nullable disable
 
 namespace RateAmData.Migrations
 {
@@ -71,13 +68,26 @@ namespace RateAmData.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_rates", x => x.rate_id);
+                    table.ForeignKey(
+                        name: "FK_rates_banks_bank_id",
+                        column: x => x.bank_id,
+                        principalTable: "banks",
+                        principalColumn: "bank_id",
+                        onDelete: ReferentialAction.Cascade);
+
+                    table.ForeignKey(
+                        name: "FK_rates_currencies_currency_id",
+                        column: x => x.currency_id,
+                        principalTable: "currencies",
+                        principalColumn: "currency_id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
 
 
 
             migrationBuilder.InsertData("banks",
-           columns: new[] { nameof(BankEntity.Id), nameof(BankEntity.Name), nameof(BankEntity.IconURL) },
+           columns: new[] { "bank_id", "name", "icon_url" },
            values: new object[,] {
                    { 1 ,"Fast Bank", "https://rate.am/images/organization/logo/767eaf3e45ae41bca8d7e4e481da6501.jpg"},
                    { 2 ,"Unibank", "https://rate.am/images/organization/logo/9cf13d95c8214c7e989a242cc0772311.jpg"},
@@ -98,8 +108,10 @@ namespace RateAmData.Migrations
                    { 17,  "Mellat Bank","https://rate.am/images/organization/logo/17.gif"},
                    { 18,  "ARMECONOMBANK",  "https://rate.am/images/organization/logo/e5ef9988870b4896be0399d803cedf57.jpg"}
            });
+
+
             migrationBuilder.InsertData("currencies",
-           columns: new[] { nameof(CurrencyEntity.Id), nameof(CurrencyEntity.Name), nameof(CurrencyEntity.IconUrl), nameof(CurrencyEntity.Symbol) },
+           columns: new[] { "currency_id", "name", "icon_url", "symbol" },
            values: new object[,] {
 
                {1, "USD", "https://rate.am/images/currency/icon/USD.gif", "$" },
@@ -120,11 +132,10 @@ namespace RateAmData.Migrations
                {13, "HKD", "https://rate.am/images/currency/icon/HKD.gif", "$" },
                {14, "KZT", "https://rate.am/images/currency/icon/KZT.gif", "₸" },
                {15, "XAU", "https://rate.am/images/currency/icon/XAU.gif", "" },
-
            });
-
-
         }
+
+
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)

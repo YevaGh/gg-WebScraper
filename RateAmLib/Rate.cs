@@ -4,7 +4,7 @@ namespace RateAmLib
 {
     public class Rate
     {
-        public int Id { get; set; }
+        public int RateId { get; set; }
         public DateTime PublishDate { get; set; }
         public decimal ?BuyRate { get; set; }
         public decimal ?SellRate { get; set; }

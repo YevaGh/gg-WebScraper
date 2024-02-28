@@ -10,7 +10,7 @@ import { Bank } from '../models/bank';
   providedIn: 'root'
 })
 export class RatesService {
-  private apiUrl = 'http://localhost:5002/api/Rates';
+  private apiUrl = 'http://myapi:5002/api/Rates';
 
   constructor(private httpClient: HttpClient) { }
 

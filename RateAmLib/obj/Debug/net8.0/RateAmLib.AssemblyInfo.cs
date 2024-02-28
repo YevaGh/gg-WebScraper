@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RateAmLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f74cd43d3d83544504254f9f14409248a9ed871")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d99eeb0acfff2f7c64e16c1ec2f8e4916461e159")]
 [assembly: System.Reflection.AssemblyProductAttribute("RateAmLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RateAmLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -42,7 +42,6 @@ public class RatesRepository : IRatesRepository
     public async Task SaveAll(RateEntity[] entities)
     {
 
-
         var query = from r in _dbContext.Rates
                     join maxPublishDates in
                     (

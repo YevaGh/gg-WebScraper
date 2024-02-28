@@ -24,6 +24,8 @@ var builderConfig = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json")
     .Build();
+
+var conString = builderConfig.GetConnectionString("RateDb");
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -34,7 +36,7 @@ builder.Services.AddSwaggerGen(c =>
 
 // my services in the container.
 builder.Services.AddSingleton<IConfiguration>(builderConfig);
-builder.Services.AddScoped<RateAmDataContext>();
+builder.Services.AddDbContext<RateAmDataContext>();
 builder.Services.AddScoped<IRatesRepository, RatesRepository>();
 builder.Services.AddScoped<IBanksRepository, BanksRepository>();
 builder.Services.AddScoped<ICurrenciesRepository, CurrenciesRepository>();

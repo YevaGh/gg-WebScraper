@@ -46,7 +46,7 @@ namespace RateAmData.Repositories
         public async Task<BankEntity> GetBankById(int id)
         {
             IQueryable<BankEntity> q = _dbContext.Banks.AsQueryable<BankEntity>();
-            return await q.Where(b => b.Id == id).FirstAsync();
+            return await q.Where(b => b.BankId == id).FirstAsync();
         }
 
     }

@@ -8,7 +8,7 @@ namespace RateAmData.Entities
     {
         [Key]
         [Column("id")]
-        public int Id { get; set; }
+        public int ColId { get; set; }
 
         [Column("last_date")]
         public DateTime LastDate { get; set; }

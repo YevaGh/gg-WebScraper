@@ -84,7 +84,7 @@ namespace RateAmLib
                    Console.WriteLine(i + " " + j);
                    var buy_rate = data[i, j];
                    var sell_rate = data[i, j+1];
-                   var currency = Currencies.CurrenciesSource.First(obj=>obj.Id == cur_id);
+                   var currency = Currencies.CurrenciesSource.First(obj=>obj.CurrencyId == cur_id);
 
                    //Rate rate = new Rate() { Id = rate_id++, BuyRate = buy_rate, SellRate = sell_rate, Bank = bank, BankId = bank.Id, Currency = currency, CurrencyId = cur_id };
 

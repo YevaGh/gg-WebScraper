@@ -4,7 +4,7 @@ namespace RateAmLib
 {
     public class Currency
     {
-        public int Id {  get; set; }
+        public int CurrencyId {  get; set; }
         public string Name { get; set; }
         public string Symbol {  get; set; }
         public string IconURL {  get; set; }

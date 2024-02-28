@@ -9,16 +9,16 @@ namespace RateAmData.Entities
     {
         [Key]
         [Column("currency_id")]
-        public int Id {  get; set; }
+        public int CurrencyId {  get; set; }
 
         [Column("name")]
-        public string Name {  get; set; }
+        public string ?Name {  get; set; }
 
         [Column("symbol")]
-        public string Symbol { get; set; }
+        public string ?Symbol { get; set; }
 
         [Column("icon_url")]
-        public string IconUrl { get; set; }
+        public string ?IconUrl { get; set; }
 
     }
 }

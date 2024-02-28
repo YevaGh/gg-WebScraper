@@ -31,7 +31,7 @@ namespace RateAmData.Repositories
         public async Task<CurrencyEntity> GetCurrencyById(int id)
         {
             IQueryable<CurrencyEntity> q = _dbContext.Currencies.AsQueryable<CurrencyEntity>();
-            return await q.Where(b => b.Id == id).FirstAsync();
+            return await q.Where(b => b.CurrencyId == id).FirstAsync();
         }
 
         public async Task<CurrencyEntity> GetCurrencyByName(string name)

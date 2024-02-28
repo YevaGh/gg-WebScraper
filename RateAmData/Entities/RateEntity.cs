@@ -8,7 +8,7 @@ namespace RateAmData.Entities
     {
         [Key]
         [Column("rate_id")]
-        public int Id { get; set; }
+        public int RateId { get; set; }
 
         [Column("publish_date")]
         public DateTime PublishDate { get; set; }

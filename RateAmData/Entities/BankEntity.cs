@@ -8,12 +8,12 @@ namespace RateAmData.Entities
     {
         [Key]
         [Column("bank_id")]
-        public int Id { get; set; }
+        public int BankId { get; set; }
 
         [Column("name")]
-        public string Name { get; set; }
+        public string ?Name { get; set; }
 
         [Column("icon_url")]
-        public string IconURL { get; set; }
+        public string ?IconURL { get; set; }
     }
 }

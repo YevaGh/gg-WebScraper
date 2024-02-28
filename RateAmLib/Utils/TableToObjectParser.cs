@@ -35,7 +35,7 @@ namespace RateAmLib.Utils
                     sell_rate = TryParseDecimal(row.Cells[j + 1].Value);
 
 
-                    Rate rate = new Rate() { BuyRate = buy_rate,PublishDate = date, SellRate = sell_rate, BankId = bank.Id, CurrencyId = curr.Id };
+                    Rate rate = new Rate() { BuyRate = buy_rate,PublishDate = date, SellRate = sell_rate, BankId = bank.BankId, CurrencyId = curr.CurrencyId };
                     rates.Add(rate);
 
                 }

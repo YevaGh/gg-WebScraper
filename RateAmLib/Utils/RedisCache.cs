@@ -23,7 +23,10 @@ namespace RateAmLib.Utils
             return instance;
         }
 
-        private RedisCache() { }
+
+        private RedisCache() {
+        GetRedisCache();
+        }
         public string Get(string key)
         {
             return _db.StringGet(key);
@@ -42,7 +45,7 @@ namespace RateAmLib.Utils
                                .Build();
 
             // var connectionString = builder.GetConnectionString("redis");
-            var connectionString = "localhost: 6379,abortConnect=false";
+            var connectionString = "redis: 6379,abortConnect=false";
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(connectionString);
             return redis.GetDatabase();
 
