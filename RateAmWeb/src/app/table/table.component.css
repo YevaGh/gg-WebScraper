@@ -22,8 +22,11 @@ th, td {
     background-color: #9aae9ba6;
   }
 
-tr:hover {
+tr:hover{
   background-color: #79907a26;
+}
+td:hover { 
+    background-color: #fffc696b;       
 }
 
 td:nth-last-child(-n+5):hover {

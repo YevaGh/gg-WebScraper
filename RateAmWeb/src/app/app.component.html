@@ -1,4 +1,4 @@
-<div class="parent-container">
+<div>
   
     <h1 class="center">15 Currencies in 18 Banks</h1>
 
@@ -6,7 +6,7 @@
       <div style="flex: 3; margin-right:30px">
       <table-component  class="table-container" (selectedData)="handleSelectedData($event)"></table-component>
       </div>
-      <div style="flex: 1;">
+      <div style="flex: 1;" >
       <app-calculator  [selectedRow]= "selectedRow" [clickedCurrency]="clickedCurrency" ></app-calculator>
       <app-info></app-info>
       </div>

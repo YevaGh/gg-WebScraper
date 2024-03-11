@@ -55,8 +55,14 @@ export class CalculatorComponent implements OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedRow'] || changes['clickedCurrency']) {
-      this.selectedBank = this.allBanks.find(b => b.name == this.selectedRow!.bank)!
-      this.fromCurrency = this.clickedCurrency!.name
+      
+      if (this.getAvailableCurrencies(this.allBanks.find(b => b.name == this.selectedRow!.bank)!).includes(this.clickedCurrency!.name)) {
+        this.fromCurrency = this.clickedCurrency!.name
+        this.toCurrency = "AMD"
+        this.selectedBank = this.allBanks.find(b => b.name == this.selectedRow!.bank)!
+        this.convert()
+      }
+
     }
   }
 
@@ -97,10 +103,14 @@ export class CalculatorComponent implements OnChanges {
     } if (this.fromCurrency == "AMD") {
       var rate = this.rates.find(r => r.bankId == this.selectedBank.id && r.currencyId == this.getIdByName(this.toCurrency))!
       this.amount = parseFloat((rate.sellRate * this.convertedAmount!).toFixed(2))
+    } else if (this.toCurrency == "AMD") {
+      var rate = this.rates.find(r => r.bankId == this.selectedBank.id && r.currencyId == this.getIdByName(this.fromCurrency))!
+      this.amount = parseFloat((this.convertedAmount!/rate.buyRate).toFixed(2))
+
     } else {
       var rate = this.rates.find(r => r.bankId == this.selectedBank.id && r.currencyId == this.getIdByName(this.toCurrency))!
       var toAMD = rate.sellRate * this.convertedAmount!
-      this.amount = parseFloat((toAMD / this.rates.find(r => r.bankId == this.selectedBank.id && r.currencyId == this.getIdByName(this.fromCurrency))!.buyRate).toFixed(2))
+      this.amount = parseFloat((toAMD / this.rates.find(r => r.bankId == this.selectedBank.id && r.currencyId == this.getIdByName(this.fromCurrency))!.buyRate).toFixed(2)) 
     }
   }
 

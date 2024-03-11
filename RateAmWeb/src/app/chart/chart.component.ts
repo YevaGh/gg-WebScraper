@@ -24,12 +24,9 @@ export class ChartComponent implements OnInit, AfterViewInit {
     this.rateService.getAllRates().subscribe(
       (res: Rate[]) => {
         this.allRates = res;
-        /* this.chartData = this.allRates.filter(r => r.currencyId == 1).map(item => {
-           return { date: item.publishDate.toString(), rate: item.buyRate };
-         }) as { date: string, rate: number }[];
- */
+
         const uniqueDatesMap = this.allRates
-          .filter(r => r.currencyId == 1)
+          .filter(r => r.currencyId == 1 && new Date(r.publishDate).getFullYear() === 2024)
           .reduce((acc, item) => {
             const dateString = item.publishDate.toString() as keyof typeof acc;
             if (!acc[dateString]) {
