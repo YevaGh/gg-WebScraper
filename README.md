@@ -26,7 +26,7 @@ The project consists of the following components:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/your-project.git
+   https://github.com/YevaGh/gg-WebScraper.git
    ```
 
 2. **Install Dependencies**:
