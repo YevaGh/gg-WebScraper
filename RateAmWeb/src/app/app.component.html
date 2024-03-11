@@ -2,11 +2,17 @@
   
     <h1 class="center">15 Currencies in 18 Banks</h1>
 
-    <div class="table-container">
-      <table-component></table-component>
+    <div class="container">
+      <div style="flex: 3; margin-right:30px">
+      <table-component  class="table-container" (selectedData)="handleSelectedData($event)"></table-component>
+      </div>
+      <div style="flex: 1;">
+      <app-calculator  [selectedRow]= "selectedRow" [clickedCurrency]="clickedCurrency" ></app-calculator>
+      <app-info></app-info>
+      </div>
     </div>
-    <div>
+   
       <app-chart></app-chart>
-    </div>
+    
   
 </div>

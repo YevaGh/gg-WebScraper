@@ -1,5 +1,5 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Rate } from '../models/rate';
@@ -12,7 +12,6 @@ import { Currency } from '../models/currency';
 import { CommonModule } from '@angular/common';
 import { CurrencyBuySell, TableRow } from '../models/tableRow';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { map } from 'rxjs';
 import { Bank } from '../models/bank';
 
 
@@ -31,16 +30,18 @@ export class TableOfRates implements AfterViewInit {
   tableRows: TableRow[] = [];
   dataSource = new MatTableDataSource(this.tableRows);
 
-
-  selected1: string = 'USD';
-  selected2: string = 'EUR';
-  selected3: string = 'RUR';
-  selected4: string = 'GBP';
-  selected5: string = 'GEL';
+  selected1!: Currency
+  selected2!: Currency
+  selected3!: Currency
+  selected4!: Currency
+  selected5!: Currency
 
   //selectedCurrencyData: CurrencyBuySell[] = [];
 
-  hoveredCell: any; 
+  @Output() selectedData: EventEmitter<{ row: TableRow, currency: Currency }> = new EventEmitter<{ row: TableRow, currency: Currency }>();
+
+
+  hoveredCell: any;
 
   onMouseEnter(cell: any) {
     this.hoveredCell = cell;
@@ -49,6 +50,7 @@ export class TableOfRates implements AfterViewInit {
   onMouseLeave() {
     this.hoveredCell = null;
   }
+
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private rateService: RatesService, private sanitizer: DomSanitizer) { }
 
@@ -65,9 +67,14 @@ export class TableOfRates implements AfterViewInit {
     this.rateService.getBanksAndCurrencies().subscribe(
       (res: { banks: Map<number, Bank>, currencies: Map<number, Currency> }) => {
         this.allBanks = res.banks;
+        this.curs = Array.from(res.currencies.values())
         this.tableRows = this.ToTableRow(this.allRates, res.banks, res.currencies)
         this.dataSource = new MatTableDataSource(this.tableRows)
-        this.curs = Array.from(res.currencies.values())
+        this.selected1 = this.curs[0]
+        this.selected2 = this.curs[1]
+        this.selected3 = this.curs[2]
+        this.selected4 = this.curs[3]
+        this.selected5 = this.curs[4]
       }
     )
   }
@@ -84,10 +91,39 @@ export class TableOfRates implements AfterViewInit {
       this.dataSource.data = this.tableRows;
       return;
     }
-    this.dataSource.data = data.sort((a, b) => {
+    
+    switch (sort.active) {
+      case 'bank':
+        this.dataSource.data = data.sort((a, b) => {
       return (a.bank < b.bank ? -1 : 1) * (sort.direction === 'asc' ? 1 : -1);
-    })
+        })
+        break
+      case 'publishDate':
+        this.dataSource.data = data.sort((a, b) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
 
+          return (dateA.getTime() - dateB.getTime()) * (sort.direction === 'asc' ? 1 : -1);
+        });
+    }
+
+  }
+
+  getLowestSellValue(element: TableRow, selectedCur: string): number {
+    const currencies = this.tableRows.
+      flatMap(x => x.currencies).
+      filter(x => x.curName == selectedCur).
+      map(x => x.sell)
+    return Math.min(...currencies)
+  }
+
+  getHighestBuyValue(element: TableRow, selectedCur: string): number {
+    const currencies = this.tableRows.
+      flatMap(x => x.currencies).
+      filter(x => x.curName == selectedCur && x.buy !== 0).
+      map(x => x.buy)
+
+    return Math.max(...currencies);
   }
 
 
@@ -112,13 +148,14 @@ export class TableOfRates implements AfterViewInit {
       } else {
         currenciesForEachBank = [];
         currenciesForEachBank.push(cur)
-
+        let dateTemp = new Date(rate.publishDate)
+        dateTemp.setHours(dateTemp.getHours() + 16)
         tableRowsMap.set(rate.bankId,
           {
             bankIcon: banks.get(rate.bankId)!.iconURL,
             bank: banks.get(rate.bankId)!.name,
-            date: new Date(rate.publishDate),
-            currencies: currenciesForEachBank
+            date: dateTemp,
+           currencies: currenciesForEachBank
           })
       }
     })
@@ -127,15 +164,9 @@ export class TableOfRates implements AfterViewInit {
   }
 
   getDateString(date: Date): string {
-    const currentDate = new Date();
     var options: Intl.DateTimeFormatOptions
 
-    //if (this.isSameDate(date, currentDate)) {
-    //  options = { hour: '2-digit', minute: '2-digit', hour12: false };
-    //} else {
-    //}
-
-    options = { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }
+    options = { month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }
 
     const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
 
@@ -147,12 +178,11 @@ export class TableOfRates implements AfterViewInit {
     return row.currencies.find(currency => currency.curName === selectedCurr)!
   }
 
-  private isSameDate(rateDate: Date, todayDate: Date): boolean {
-    return rateDate.getDate() === todayDate.getDate() &&
-      rateDate.getMonth() === todayDate.getMonth() &&
-      rateDate.getFullYear() === todayDate.getFullYear();
-
+  emitSelectedData(selectedRow: TableRow, clickedCurrency: Currency): void {
+    this.selectedData.emit({ row: selectedRow, currency: clickedCurrency });
   }
+
+
 }
 
 

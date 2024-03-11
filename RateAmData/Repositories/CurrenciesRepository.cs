@@ -6,7 +6,7 @@ namespace RateAmData.Repositories
 {
     public interface ICurrenciesRepository
     {
-        Task Save(CurrencyEntity entity);
+        Task SaveAll(CurrencyEntity[] entity);
         Task<IEnumerable<CurrencyEntity>> GetAll();
         Task<CurrencyEntity> GetCurrencyByName(string name);
         Task<CurrencyEntity> GetCurrencyById(int id);
@@ -40,9 +40,9 @@ namespace RateAmData.Repositories
             return await q.Where(b => b.Name == name).FirstAsync();
         }
 
-        public async Task Save(CurrencyEntity entity)
+        public async Task SaveAll(CurrencyEntity[] entity)
         {
-            await _dbSet.AddAsync(entity);
+            await _dbSet.AddRangeAsync(entity);
             await _dbContext.SaveChangesAsync();
         }
     }

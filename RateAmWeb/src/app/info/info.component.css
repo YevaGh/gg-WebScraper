@@ -1,0 +1,14 @@
+a:hover{
+    color:darkred
+}
+a {
+  color: black;
+  font-size: 16px !important;
+}
+
+h2 {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: end
+}

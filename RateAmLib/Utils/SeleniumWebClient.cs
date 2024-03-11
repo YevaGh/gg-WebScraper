@@ -1,5 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.Extensions.Options;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using RateAmLib.Utils.Abtract;
 
@@ -19,9 +22,16 @@ namespace RateAmLib.Utils
 
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--headless");
-            IWebDriver driver = new ChromeDriver(chromeOptions);
+            chromeOptions.AddArgument("no-sandbox");
+
+            var url = new Uri("http://selenium:4444/wd/hub");
+          
+            var driver = new RemoteWebDriver(url, chromeOptions);
+
+            driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(120));
+
             driver.Navigate().GoToUrl("https://rate.am/en");
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
 
             //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)driver;
             //jsExecutor.ExecuteScript("window.localStorage.clear();");

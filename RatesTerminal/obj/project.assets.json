@@ -1337,10 +1337,10 @@
           }
         }
       },
-      "Selenium.Support/4.17.0": {
+      "Selenium.Support/4.18.1": {
         "type": "package",
         "dependencies": {
-          "Selenium.WebDriver": "4.17.0"
+          "Selenium.WebDriver": "4.18.1"
         },
         "compile": {
           "lib/netstandard2.0/WebDriver.Support.dll": {
@@ -1353,7 +1353,7 @@
           }
         }
       },
-      "Selenium.WebDriver/4.17.0": {
+      "Selenium.WebDriver/4.18.1": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1"
@@ -1372,7 +1372,7 @@
           "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/121.0.6167.8500": {
+      "Selenium.WebDriver.ChromeDriver/122.0.6261.9400": {
         "type": "package",
         "build": {
           "build/_._": {}
@@ -2341,9 +2341,9 @@
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.2",
           "RateAmData": "1.0.0",
-          "Selenium.Support": "4.17.0",
-          "Selenium.WebDriver": "4.17.0",
-          "Selenium.WebDriver.ChromeDriver": "121.0.6167.8500",
+          "Selenium.Support": "4.18.1",
+          "Selenium.WebDriver": "4.18.1",
+          "Selenium.WebDriver.ChromeDriver": "122.0.6261.9400",
           "StackExchange.Redis": "2.7.20",
           "System.Net.Http": "4.3.4"
         },
@@ -4498,24 +4498,24 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
-    "Selenium.Support/4.17.0": {
-      "sha512": "Ex4FJp8lD3Dsy6bJdey4wehDQrS7mYBln6oL82Ni4adWcfIz0fF7IUfyp8RK/7KkP4hzz2mu30AacvMltTdB7w==",
+    "Selenium.Support/4.18.1": {
+      "sha512": "o83krRx6DklUtg4Onukp5SE9r6drfBDxzmGrFynICb8fTlXXZ75zdp8wp3+8sdcRaBCgpdlgQFCqoA6HOjzhow==",
       "type": "package",
-      "path": "selenium.support/4.17.0",
+      "path": "selenium.support/4.18.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/WebDriver.Support.dll",
         "lib/netstandard2.0/WebDriver.Support.xml",
-        "selenium.support.4.17.0.nupkg.sha512",
+        "selenium.support.4.18.1.nupkg.sha512",
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.17.0": {
-      "sha512": "wHwWPvQkgZv+k24pncPZswRdSF4AhF2bFVoF7MrY4Xw122j9L89TNGZUvdjdmscPk2XGpRK1fFQODOKopibQEw==",
+    "Selenium.WebDriver/4.18.1": {
+      "sha512": "x9Pkz+kzcZ6dToJFLiem36pp0xmIfu/DXFf3U7EaoFqdtYyLsDJB0e/v58NAghcPTrAwJMSduEAokBRFFCxAxg==",
       "type": "package",
-      "path": "selenium.webdriver/4.17.0",
+      "path": "selenium.webdriver/4.18.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4528,14 +4528,14 @@
         "manager/linux/selenium-manager",
         "manager/macos/selenium-manager",
         "manager/windows/selenium-manager.exe",
-        "selenium.webdriver.4.17.0.nupkg.sha512",
+        "selenium.webdriver.4.18.1.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/121.0.6167.8500": {
-      "sha512": "vGSkTin9LkYpkG5DbTVF78tI2p4Tchw+gnzTxA6JpwLKvaf5mJrNd5TgpfpsMNg5DuI5jsc2oW0ZhrA86wY6fw==",
+    "Selenium.WebDriver.ChromeDriver/122.0.6261.9400": {
+      "sha512": "u0kWy6d0mp0YxVVHg1+G6yuNi/2+O+eRejc3SdJ1Ep8akq4OsFBOw+VUsW9CAH2jIdX8DWBdsAcu2ZE6TFsA9g==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/121.0.6167.8500",
+      "path": "selenium.webdriver.chromedriver/122.0.6261.9400",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4552,7 +4552,7 @@
         "driver/win32/LICENSE.chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.121.0.6167.8500.nupkg.sha512",
+        "selenium.webdriver.chromedriver.122.0.6261.9400.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
@@ -6892,23 +6892,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\khaza\\.nuget\\packages\\": {},
+    "C:\\Users\\Yeva Ghazaryan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khaza\\source\\repos\\RatesAm\\RatesTerminal\\RatesTerminal.csproj",
+      "projectUniqueName": "C:\\Users\\Yeva Ghazaryan\\source\\repos\\RateAm\\RatesTerminal\\RatesTerminal.csproj",
       "projectName": "RatesTerminal",
-      "projectPath": "C:\\Users\\khaza\\source\\repos\\RatesAm\\RatesTerminal\\RatesTerminal.csproj",
-      "packagesPath": "C:\\Users\\khaza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khaza\\source\\repos\\RatesAm\\RatesTerminal\\obj\\",
+      "projectPath": "C:\\Users\\Yeva Ghazaryan\\source\\repos\\RateAm\\RatesTerminal\\RatesTerminal.csproj",
+      "packagesPath": "C:\\Users\\Yeva Ghazaryan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Yeva Ghazaryan\\source\\repos\\RateAm\\RatesTerminal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\khaza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Yeva Ghazaryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6924,11 +6924,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\khaza\\source\\repos\\RatesAm\\RateAmData\\RateAmData.csproj": {
-              "projectPath": "C:\\Users\\khaza\\source\\repos\\RatesAm\\RateAmData\\RateAmData.csproj"
+            "C:\\Users\\Yeva Ghazaryan\\source\\repos\\RateAm\\RateAmData\\RateAmData.csproj": {
+              "projectPath": "C:\\Users\\Yeva Ghazaryan\\source\\repos\\RateAm\\RateAmData\\RateAmData.csproj"
             },
-            "C:\\Users\\khaza\\source\\repos\\RatesAm\\RateAmLib\\RateAmLib.csproj": {
-              "projectPath": "C:\\Users\\khaza\\source\\repos\\RatesAm\\RateAmLib\\RateAmLib.csproj"
+            "C:\\Users\\Yeva Ghazaryan\\source\\repos\\RateAm\\RateAmLib\\RateAmLib.csproj": {
+              "projectPath": "C:\\Users\\Yeva Ghazaryan\\source\\repos\\RateAm\\RateAmLib\\RateAmLib.csproj"
             }
           }
         }
@@ -6937,6 +6937,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -6982,7 +6987,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

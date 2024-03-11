@@ -2,23 +2,18 @@
 }
 
 .table-container {
-  margin: 0 auto;
-  width: 90vw;
-  padding: 20px;
-}
+/*  margin-inline: 15px;
+*/}
 
 .center {
   text-align: center;
-  background-color :darkslategrey;
-  width: 90vw;
-  padding-top: 10px; 
-  padding-bottom: 10px;
-  margin: 0 auto;
-  margin-top: 20px;
+  background-color :#37433d;
+  padding-bottom: 30px;
+  margin-top: 30px;
   color:white;
 }
 
-table {
-  width: auto;
-  box-sizing: content-box;
+.container {
+  display: flex;
+  margin: 30px;
 }

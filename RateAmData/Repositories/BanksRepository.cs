@@ -7,10 +7,8 @@ namespace RateAmData.Repositories
     public interface IBanksRepository
     {
         Task SaveAsync(BankEntity entity);
-        /// <summary>
-        /// bla bla bla
-        /// </summary>
-        /// <returns></returns>
+        Task SaveAllAsync(BankEntity[] entity);
+        
         Task<IEnumerable<BankEntity>> GetAll();
         Task<BankEntity> GetBankByName(string bankName);
         Task<BankEntity> GetBankById(int id);
@@ -49,5 +47,10 @@ namespace RateAmData.Repositories
             return await q.Where(b => b.BankId == id).FirstAsync();
         }
 
+        public async Task SaveAllAsync(BankEntity[] entity)
+        {
+            await _dbSet.AddRangeAsync(entity);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

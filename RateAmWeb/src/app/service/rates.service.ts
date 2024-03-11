@@ -1,28 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, mergeMap, of } from 'rxjs';
+import { Observable, concatMap, map, mergeMap, of } from 'rxjs';
 import { Rate } from '../models/rate';
 import { Currency } from '../models/currency';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Bank } from '../models/bank';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RatesService {
-  private apiUrl = 'http://myapi:5002/api/Rates';
+  private apiUrl = 'http://localhost:5002/api/Rates';
 
   constructor(private httpClient: HttpClient) { }
 
-  getRates(): Observable<Rate[]> {
-
-    let a = this.httpClient.get<any>(this.apiUrl + "/cached-rates/")
-      .pipe(
-        map((jsonArray: any[]) => jsonArray.map(json => this.mapJsonToRate(json)))
-      );
-
-    return a
-  }
 
   getBanksAndCurrencies(): Observable<{ banks: Map<number, Bank>, currencies: Map<number, Currency> }> {
 
@@ -33,16 +23,28 @@ export class RatesService {
   }
 
 
-  getAllRates(): Observable<Rate[]> {
+  getRates(): Observable<Rate[]> {
 
-    let a = this.httpClient.get<any>(this.apiUrl + "/all-rates/")
+    return this.httpClient.get<any>(this.apiUrl + "/cached-rates/")
       .pipe(
         map((jsonArray: any[]) => jsonArray.map(json => this.mapJsonToRate(json)))
       );
 
-    return a
   }
+  //getRates(): Observable<Rate[]> {
+  //  return this.getBanksAndCurrencies().pipe(
+  //    concatMap(() => this.httpClient.get<any[]>(this.apiUrl + '/cached-rates/')),
+  //    map((jsonArray: any[]) => jsonArray.map(json => this.mapJsonToRate(json)))
+  //  );
+  //}
 
+  getAllRates(): Observable<Rate[]> {
+    return this.httpClient.get<any>(this.apiUrl + "/all-rates/")
+      .pipe(
+        map((jsonArray: any[]) => jsonArray.map(json => this.mapJsonToRate(json)))
+      );
+
+  }
   private mapJsonToRate(json: any): Rate {
     return {
       publishDate: json.publishDate,
@@ -54,8 +56,8 @@ export class RatesService {
   }
 
   private mapToBankOrCurrency(json: any): { banks: Map<number, Bank>, currencies: Map<number, Currency> } {
-    const banks: Map<number, Bank> = new Map();
-    const currencies: Map<number, Currency> = new Map();
+    let banks: Map<number, Bank> = new Map();
+    let currencies: Map<number, Currency> = new Map();
 
     //json.forEach((obj: any) => {
     //  if (Object.keys(obj).length == 3) {
@@ -77,16 +79,15 @@ export class RatesService {
         symbol: obj.symbol,
         iconURL: obj.iconURL
       };
-      currencies.set(obj.id, currency);
+      currencies.set(obj.currencyId, currency);
     }
-
     for (const obj of Object.values<any>(json.banks)) {
       const bank: Bank = {
         name: obj.name,
-        id: obj.id,
+        id: obj.bankId,
         iconURL: obj.iconURL
       };
-      banks.set(obj.id, bank);
+      banks.set(obj.bankId, bank);
     }
 
     return { banks, currencies };

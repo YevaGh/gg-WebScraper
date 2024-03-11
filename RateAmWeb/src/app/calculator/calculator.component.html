@@ -1,0 +1,46 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Abel&family=Anta&family=Crimson+Text:wght@600;700&family=Lora:wght@400..700&display=swap')
+</style>
+
+<span style="font-weight: bold; font-size: 20px;">Convert your money</span>
+<div class="converter">
+
+  <div>
+    <mat-form-field appearance="outline" class="bank-block">
+      <mat-label>bank</mat-label>
+      <mat-select [(ngModel)]="selectedBank" (selectionChange)="onBankChange()" panelClass="custom-select-panel">
+        <mat-select-trigger>
+          <img [src]="selectedBank.iconURL" width="30" height="15" style="margin-right: 8px;"> {{ selectedBank.name }}
+        </mat-select-trigger>
+        <mat-option *ngFor="let bank of allBanks" [value]="bank">
+          <img [src]="bank.iconURL" width="30" height="15" style="margin-right: 8px;"> {{ bank.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+  <div style="display:flex ; align-items:center">
+    <div>
+      <mat-label class="i-have-i-want">I have</mat-label>
+      <div class="mat-outlined-element" style="margin-bottom:10px">
+        <input type="number" placeholder="Enter amount" min="0" pattern="\d*" [(ngModel)]="amount" (ngModelChange)="convert()" [style.color]="amount === 0 ? 'transparent' : 'inherit'">
+        <select [(ngModel)]="fromCurrency" (ngModelChange)="convert()">
+          <option *ngFor="let currency of availableCurrencies" [value]="currency">{{ currency }}</option>
+        </select>
+      </div>
+      <mat-label class="i-have-i-want">I want</mat-label>
+      <div class="mat-outlined-element">
+        <input type="number" min="0" pattern="\d*" [(ngModel)]="convertedAmount" (ngModelChange)="convertReverse()" [style.color]="convertedAmount === 0 && amount!=1 ? 'transparent' : 'inherit'">
+        <select [(ngModel)]="toCurrency" (ngModelChange)="convert()">
+          <option *ngFor="let currency of availableCurrencies" [value]="currency">{{ currency }}</option>
+        </select>
+      </div>
+    </div>
+    <div style="text-align: center;">
+    <button style="background:unset; margin:10px ; border-radius:20px; padding-inline:5px; margin-top:30px" (click)="currenciesReverse()"><img src="https://www.iconpacks.net/icons/2/free-convert-icon-3215-thumb.png" width="25px" height="25px" alt="Image Description"></button>
+  </div>
+  </div>
+
+  </div>
+

@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using RateAmData;
 using RateAmData.Repositories;
 using RateAmLib.Services;
+using RateAmLib.Utils.Abtract;
+using RateAmLib.Utils;
 
 
 //http://localhost:5002/index.html swagger
@@ -37,12 +39,20 @@ builder.Services.AddSwaggerGen(c =>
 // my services in the container.
 builder.Services.AddSingleton<IConfiguration>(builderConfig);
 builder.Services.AddDbContext<RateAmDataContext>();
+builder.Services.AddScoped<RedisCache>();
 builder.Services.AddScoped<IRatesRepository, RatesRepository>();
-builder.Services.AddScoped<IBanksRepository, BanksRepository>();
 builder.Services.AddScoped<ICurrenciesRepository, CurrenciesRepository>();
+builder.Services.AddScoped<IBanksRepository, BanksRepository>();
 builder.Services.AddScoped<IRateService, RateService>();
 builder.Services.AddScoped<IBankService, BankService>();
+builder.Services.AddScoped<BankService>();
+builder.Services.AddScoped<CurrencyService>();
 builder.Services.AddScoped<ICurrencyService, CurrencyService>();
+builder.Services.AddScoped<IWebClient, SeleniumWebClient>();
+builder.Services.AddScoped<IXmlParser, XmlDocumentParser>();
+builder.Services.AddScoped<IHtmlTableParser, HtmlTableParser>();
+builder.Services.AddScoped<ITableToObjectParser, TableToObjectParser>();
+builder.Services.AddScoped<WorkerService>();
 
 
 builder.Services.AddControllers()

@@ -73,3 +73,55 @@ This project is licensed under the [MIT License](LICENSE).
 ## Acknowledgements
 
 - Special thanks to [acknowledged individual/organization] for their contributions to this project.
+
+
+##docker-compose file 
+
+```bash
+version: '3.9'
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fromdocker
+
+  myredis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+    restart: always
+
+  myterminal:
+    image: yevka/rateam-myterminal:latest
+    environment:
+      - ConnectionStrings__RateDb=Host=postgres;Port=6543;Database=fromdocker;Username=postgres;Password=password
+      - ConnectionStrings__Redis=Host=myredis;Port=6379
+    depends_on:
+      - postgres
+      - myredis
+      - selenium
+
+  myapi:
+    image: yevka/rateam-myapi:latest
+    ports:
+      - "5002:5002"
+    depends_on:
+      - myterminal
+
+  myweb:
+    image: yevka/rateam-myweb:latest
+    ports:
+      - "4200:4200"
+    environment:
+      - API_HOST=myapi
+      - API_PORT=5002
+    depends_on:
+      - myapi
+```

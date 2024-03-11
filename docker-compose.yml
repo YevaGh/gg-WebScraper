@@ -1,32 +1,31 @@
 version: "3.9"
-
-# networks:
-#   dev:
-#     driver: bridge
-
 services:
-  mypostgres:
-    image: postgres:latest
-    ports:
-      - "6543:5432"
+  postgres:
+    image: postgres:16-alpine
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: fromdocker
   myredis:
-    image: redis:latest
+    image: redis:7-alpine
     ports:
       - "6379:6379"
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+     - "4444:4444"
+    restart: always
   myterminal:
     build:  
       #context: ../
       dockerfile: RatesTerminal/Dockerfile
     depends_on:
-      - mypostgres
+      - postgres
       - myredis
+      - selenium
     environment:
-      ConnectionStrings__RateDb: "Host=mypostgres;Port=6543;Database=fromdocker;Username=postgres;Password=password"
-      ConnectionStrings__Redis: "Host=myredis;Port=6379"
+      ConnectionStrings__RateDb: "Host=postgres;Port=6543;Database=fromdocker;Username=postgres;Password=password"
+      ConnectionStrings__Redis: "Host=redis;Port=6379"
   myapi:
     build: 
       #context: 
@@ -41,4 +40,9 @@ services:
       dockerfile: Dockerfile
     ports:
      - "4200:4200"
+    environment:
+      API_HOST: localhost
+      API_PORT: "5002"
+    depends_on:
+     - "myapi"
     

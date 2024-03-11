@@ -10,6 +10,7 @@ namespace RateAmLib.Services
         Task<IEnumerable<Currency>> GetAll();
         Task<Currency> GetCurrencyByName(string name);
         Task<Currency> GetCurrencyById(int id);
+        Task SaveAllAsync(Currency[] currencies);
     }
 
     public class CurrencyService : ICurrencyService
@@ -36,6 +37,12 @@ namespace RateAmLib.Services
         {
             var entity = await _repository.GetCurrencyByName(name);
             return MapperConfig.Mapper.Map<Currency>(entity);
+        }
+
+        public async Task SaveAllAsync(Currency[] currencies)
+        {
+            var entities = currencies.Select(x => MapperConfig.Mapper.Map<Currency, CurrencyEntity>(x));
+            await _repository.SaveAll(entities.ToArray());
         }
     }
 }

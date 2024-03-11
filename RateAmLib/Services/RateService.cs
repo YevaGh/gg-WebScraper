@@ -25,11 +25,11 @@ namespace RateAmLib.Services
         private IRedisCache _redisCache { get; set; }
 
 
-        public RateService(IRatesRepository RateRepo)
+        public RateService(IRatesRepository RateRepo, RedisCache redisDb)
         {
             _repository = RateRepo;
             _repository.DataSaved += UpdateCache;
-            _redisCache = RedisCache.GetRedisCache();
+            _redisCache = redisDb;
         }
 
         public async Task SaveRateAsync(Rate rate)

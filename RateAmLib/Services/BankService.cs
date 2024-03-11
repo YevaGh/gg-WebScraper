@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using OpenQA.Selenium.DevTools.V120.Runtime;
 using RateAmData.Entities;
 using RateAmData.Repositories;
 
@@ -10,6 +11,7 @@ namespace RateAmLib.Services
         Task<Bank> GetBankByName(string bankName);
         Task<Bank> GetBankById(int id);
         Task<IEnumerable<Bank>> GetAll();
+        Task SaveAll(Bank[] banks);
     }
 
     public class BankService : IBankService
@@ -37,6 +39,12 @@ namespace RateAmLib.Services
         {
             var entity = await _repository.GetBankByName(bankName);
             return MapperConfig.Mapper.Map<Bank>(entity);
+        }
+
+        public async Task SaveAll(Bank[] banks)
+        {
+            var entities = banks.Select(x => MapperConfig.Mapper.Map<Bank, BankEntity>(x));
+            await _repository.SaveAllAsync(entities.ToArray());
         }
     }
 }

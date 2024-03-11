@@ -1,3 +1,15 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Abel&family=Anta&family=Crimson+Text:wght@600;700&family=Lora:wght@400..700&display=swap')
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,500&family=Nunito:ital,wght@0,300;1,300&family=Ojuju:wght@300&family=Roboto+Condensed:ital@0;1&display=swap')
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;1,500&family=Lora:ital,wght@0,500;1,500&family=Nunito:ital,wght@0,300;1,300&family=Ojuju:wght@300&family=Playfair+Display:ital,wght@0,600;1,600&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital@0;1&display=swap')
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Josefin+Sans:ital,wght@0,500;1,500&family=Lora:ital,wght@0,500;1,500&family=Nunito:ital,wght@0,300;1,300&family=Ojuju:wght@300&family=Playfair+Display:ital,wght@0,600;1,600&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital@0;1&display=swap')
+</style>
 
 <table mat-table class="custom-table" [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
        class="mat-elevation-z8">
@@ -6,16 +18,16 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header="bank">
       Bank
     </th>
-    <td mat-cell *matCellDef="let element" class="bank-column" (mouseenter)="onMouseEnter(element)" (mouseleave)="onMouseLeave()"><img [src]="element.bankIcon" class="image-size"/> {{element.bank}} </td>
+    <td mat-cell *matCellDef="let element" class="bank-column" (mouseenter)="onMouseEnter(element)" (mouseleave)="onMouseLeave()"><img [src]="element.bankIcon" class="image-size" /> {{element.bank}} </td>
   </ng-container>
 
   <ng-container matColumnDef="publishDate">
     <th mat-header-cell *matHeaderCellDef mat-sort-header="publishDate">
-      <div  style="display: flex; justify-content: center">
+      <div style="display: flex; justify-content: center">
         Date
       </div>
     </th>
-    <td mat-cell *matCellDef="let element" style="margin :0; padding:0 ; width:fit-content;">
+    <td mat-cell *matCellDef="let element" class="font-style">
       {{getDateString(element.date)}}
     </td>
   </ng-container>
@@ -24,12 +36,14 @@
     <th mat-header-cell *matHeaderCellDef style="max-width:100px">
       <div style="display: flex; justify-content: center">
         <div style="width: fit-content ">
-          <mat-form-field appearance="outline" style="max-width:160px">
-            <mat-label *ngIf="">C</mat-label>
-            <mat-select style="text-align: center; " [(ngModel)]="selected1">
-              @for (cur of curs; track cur) {
-              <mat-option [value]="cur.name">{{cur.symbol}} {{cur.name}} <img [src]=cur.iconURL /></mat-option>
-              }
+          <mat-form-field style="max-width:120px" appearance="outline">
+            <mat-select style="text-align:center" [(ngModel)]="selected1" class="curr-style">
+              <mat-select-trigger>
+                <img [src]="selected1.iconURL" style="margin-right: 5px; width:25px;height:15px">{{selected1.name}}{{ selected1.symbol }}
+              </mat-select-trigger>
+              <mat-option *ngFor="let cur of curs" [value]="cur" class="curr-style">
+                <img [src]="cur.iconURL" style="margin-right: 2px;">{{cur.name}}{{cur.symbol}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -40,10 +54,10 @@
       </div>
 
     </th>
-    <td mat-cell *matCellDef="let element" >
+    <td mat-cell *matCellDef="let element" (click)="emitSelectedData(element, selected1)">
       <div style="display:flex; align-items:center; width: 100%;">
-        <div style="width:50%">{{ getCurrency(element,selected1).buy  }}</div>
-        <div style="width:50%">{{ getCurrency(element,selected1).sell }}</div>
+        <div style="width:50%" [class.highlight-min]="getCurrency(element,selected1.name).buy == getHighestBuyValue(element,selected1.name)" [class.visibility]="getCurrency(element,selected1.name).buy == 0">{{ getCurrency(element,selected1.name).buy }}</div>
+        <div style="width:50%" [class.highlight-max]="getCurrency(element,selected1.name).sell == getLowestSellValue(element,selected1.name)" [class.visibility]="getCurrency(element,selected1.name).sell == 0">{{ getCurrency(element,selected1.name).sell }}</div>
       </div>
     </td>
   </ng-container>
@@ -53,12 +67,14 @@
     <th mat-header-cell *matHeaderCellDef style="max-width:100px">
       <div style="display: flex; justify-content: center">
         <div style="width:fit-content">
-          <mat-form-field style="max-width:160px" appearance="outline">
-            <mat-label *ngIf="">C</mat-label>
-            <mat-select style="text-align:center" [(ngModel)]="selected2">
-              @for (cur of curs; track cur) {
-              <mat-option [value]="cur.name">{{cur.symbol}} {{cur.name}} <img [src]=cur.iconURL /></mat-option>
-              }
+          <mat-form-field style="max-width:120px" appearance="outline">
+            <mat-select style="text-align:center" [(ngModel)]="selected2" class="curr-style">
+              <mat-select-trigger>
+                <img [src]="selected2.iconURL" style="margin-right: 5px; width: 25px; height: 15px">{{ selected2.name }}{{ selected2.symbol }}
+              </mat-select-trigger>
+              <mat-option *ngFor="let cur of curs" [value]="cur" class="curr-style">
+                <img [src]="cur.iconURL" style="margin-right: 2px;">{{ cur.name }}{{cur.symbol}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -69,10 +85,10 @@
       </div>
 
     </th>
-    <td mat-cell *matCellDef="let element">
-      <div style="display:flex; align-items:center; width: 100%; ;">
-        <div style="width:50%">{{ getCurrency(element,selected2).buy }}</div>
-        <div style="width:50%">{{ getCurrency(element,selected2).sell }}</div>
+    <td mat-cell *matCellDef="let element" (click)="emitSelectedData(element, selected2)">
+      <div style="display:flex; align-items:center; width: 100%;">
+        <div style="width:50%" [class.highlight-min]="getCurrency(element,selected2.name).buy == getHighestBuyValue(element,selected2.name)" [class.visibility]="getCurrency(element,selected2.name).buy == 0">{{ getCurrency(element,selected2.name).buy }}</div>
+        <div style="width:50%" [class.highlight-max]="getCurrency(element,selected2.name).sell == getLowestSellValue(element,selected2.name)" [class.visibility]="getCurrency(element,selected2.name).sell == 0">{{ getCurrency(element,selected2.name).sell }}</div>
       </div>
     </td>
   </ng-container>
@@ -82,12 +98,14 @@
     <th mat-header-cell *matHeaderCellDef style="max-width:100px">
       <div style="display: flex; justify-content: center">
         <div style="width:fit-content">
-          <mat-form-field style="max-width:160px" appearance="outline">
-            <mat-label *ngIf="">C</mat-label>
-            <mat-select style="text-align:center" [(ngModel)]="selected3">
-              @for (cur of curs; track cur) {
-              <mat-option [value]="cur.name">{{cur.symbol}} {{cur.name}} <img [src]=cur.iconURL /></mat-option>
-              }
+          <mat-form-field style="max-width:120px" appearance="outline">
+            <mat-select style="text-align:center" [(ngModel)]="selected3" class="curr-style">
+              <mat-select-trigger>
+                <img [src]="selected3.iconURL" style="margin-right: 5px; width: 25px; height: 15px">{{ selected3.name }}{{ selected3.symbol }}
+              </mat-select-trigger>
+              <mat-option *ngFor="let cur of curs" [value]="cur" class="curr-style">
+                <img [src]="cur.iconURL" style="margin-right: 2px;">{{ cur.name }}{{cur.symbol}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -98,10 +116,10 @@
       </div>
 
     </th>
-    <td mat-cell *matCellDef="let element">
-      <div style="display:flex; align-items:center; width: 100%; ">
-        <div style="width:50%">{{ getCurrency(element,selected3).buy }}</div>
-        <div style="width:50%">{{ getCurrency(element,selected3).sell }}</div>
+    <td mat-cell *matCellDef="let element" (click)="emitSelectedData(element, selected3)">
+      <div style="display:flex; align-items:center; width: 100%;">
+        <div style="width:50%" [class.highlight-min]="getCurrency(element,selected3.name).buy == getHighestBuyValue(element,selected3.name)" [class.visibility]="getCurrency(element,selected3.name).buy == 0">{{ getCurrency(element,selected3.name).buy }}</div>
+        <div style="width:50%" [class.highlight-max]="getCurrency(element,selected3.name).sell == getLowestSellValue(element,selected3.name)" [class.visibility]="getCurrency(element,selected3.name).sell == 0">{{ getCurrency(element,selected3.name).sell }}</div>
       </div>
     </td>
   </ng-container>
@@ -111,12 +129,14 @@
     <th mat-header-cell *matHeaderCellDef style="max-width:100px">
       <div style="display: flex; justify-content: center">
         <div style="width:fit-content">
-          <mat-form-field style="max-width:160px" appearance="outline">
-            <mat-label *ngIf="">C</mat-label>
-            <mat-select style="text-align:center" [(ngModel)]="selected4">
-              @for (cur of curs; track cur) {
-              <mat-option [value]="cur.name">{{cur.symbol}} {{cur.name}} <img [src]=cur.iconURL /></mat-option>
-              }
+          <mat-form-field style="max-width:120px" appearance="outline">
+            <mat-select style="text-align:center" [(ngModel)]="selected4" class="curr-style">
+              <mat-select-trigger>
+                <img [src]="selected4.iconURL" style="margin-right: 5px; width: 25px; height: 15px">{{ selected4.name }}{{ selected4.symbol }}
+              </mat-select-trigger>
+              <mat-option *ngFor="let cur of curs" [value]="cur" class="curr-style">
+                <img [src]="cur.iconURL" style="margin-right: 2px;">{{ cur.name }}{{cur.symbol}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -127,24 +147,26 @@
       </div>
 
     </th>
-    <td mat-cell *matCellDef="let element">
-      <div style="display:flex; align-items:center; width: 100%; ">
-        <div style="width:50%">{{ getCurrency(element,selected4).buy }}</div>
-        <div style="width:50%">{{ getCurrency(element,selected4).sell }}</div>
+    <td mat-cell *matCellDef="let element" (click)="emitSelectedData(element, selected4)">
+      <div style="display:flex; align-items:center; width: 100%;">
+        <div style="width:50%" [class.highlight-min]="getCurrency(element,selected4.name).buy == getHighestBuyValue(element,selected4.name)" [class.visibility]="getCurrency(element,selected4.name).buy == 0">{{ getCurrency(element,selected4.name).buy }}</div>
+        <div style="width:50%" [class.highlight-max]="getCurrency(element,selected4.name).sell == getLowestSellValue(element,selected4.name)" [class.visibility]="getCurrency(element,selected4.name).sell == 0">{{ getCurrency(element,selected4.name).sell }}</div>
       </div>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="cur5">
     <th mat-header-cell *matHeaderCellDef style="max-width: 100px;">
-      <div style="display: flex; justify-content: center">
+      <div style="display: flex; justify-content: center;">
         <div style="width: fit-content;">
-          <mat-form-field style="max-width: 160px; " appearance="outline">
-            <mat-label *ngIf="">C</mat-label>
-            <mat-select style="text-align:center;" [(ngModel)]="selected5">
-              @for (cur of curs; track cur) {
-              <mat-option [value]="cur.name">{{cur.symbol}} {{cur.name}} <img [src]=cur.iconURL /></mat-option>
-              }
+          <mat-form-field style="max-width: 120px" appearance="outline">
+            <mat-select style="text-align:center" [(ngModel)]="selected5" class="curr-style">
+              <mat-select-trigger>
+                <img [src]="selected5.iconURL" style="margin-right: 5px; width: 25px; height: 15px">{{ selected5.name }}{{ selected5.symbol }}
+              </mat-select-trigger>
+              <mat-option *ngFor="let cur of curs" [value]="cur" class="curr-style">
+                <img [src]="cur.iconURL" style="margin-right: 2px;">{{ cur.name }}{{cur.symbol}}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -155,10 +177,10 @@
       </div>
 
     </th>
-    <td mat-cell *matCellDef="let element">
-      <div style="display:flex; align-items:center; width: 100%; ">
-        <div style="width:50%">{{ getCurrency(element,selected5).buy }}</div>
-        <div style="width:50%">{{ getCurrency(element,selected5).sell }}</div>
+    <td mat-cell *matCellDef="let element" (click)="emitSelectedData(element, selected5)">
+      <div style="display:flex; align-items:center; width: 100%;">
+        <div style="width:50%" [class.highlight-min]="getCurrency(element,selected5.name).buy == getHighestBuyValue(element,selected5.name)" [class.visibility]="getCurrency(element,selected5.name).buy == 0">{{ getCurrency(element,selected5.name).buy }}</div>
+        <div style="width:50%" [class.highlight-max]="getCurrency(element,selected5.name).sell == getLowestSellValue(element,selected5.name)" [class.visibility]="getCurrency(element,selected5.name).sell == 0">{{ getCurrency(element,selected5.name).sell }}</div>
       </div>
     </td>
   </ng-container>

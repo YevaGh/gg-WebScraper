@@ -19,3 +19,24 @@ C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\selenium-manager\
 C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
 C:\Users\khaza\source\repos\RatesAm\RateAmLib\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
 C:\Users\khaza\source\repos\RatesAm\RateAmLib\obj\Debug\net8.0\RateAmLib.csproj.CopyComplete
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\RateAmLib.deps.json
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\RateAmLib.runtimeconfig.json
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\RateAmLib.dll
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\RateAmLib.pdb
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\RateAmData.dll
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\bin\Debug\net8.0\RateAmData.pdb
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.csproj.AssemblyReference.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.AssemblyInfoInputs.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.AssemblyInfo.cs
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.csproj.CoreCompileInputs.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.sourcelink.json
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.csproj.Up2Date
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.dll
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\refint\RateAmLib.dll
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.pdb
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\RateAmLib.genruntimeconfig.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmLib\obj\Debug\net8.0\ref\RateAmLib.dll

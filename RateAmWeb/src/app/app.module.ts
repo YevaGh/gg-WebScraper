@@ -9,17 +9,21 @@ import { RatesService } from './service/rates.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ChartModule } from '@syncfusion/ej2-angular-charts';
 import { ChartComponent } from './chart/chart.component';
 import { CategoryService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChartComponent,
+    InfoComponent,
+
   ],
   imports: [
+    CalculatorComponent,
     BrowserModule,
     AppRoutingModule,
     TableOfRates,
@@ -38,4 +42,4 @@ import { CategoryService, LineSeriesService } from '@syncfusion/ej2-angular-char
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

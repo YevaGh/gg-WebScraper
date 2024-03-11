@@ -1,0 +1,45 @@
+:host ::ng-deep .bank-block {
+  /*max-width: 250px;*/
+}
+
+.converter {
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 5px;
+  max-width: auto;
+}
+
+.mat-outlined-element {
+  display: flex;
+  align-items: center;
+  border: 2px solid #a9a9a9;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+  .mat-outlined-element input,
+  .mat-outlined-element select {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+  }
+
+    .mat-outlined-element input::placeholder {
+      color: #a9a9a9;
+    }
+
+.hidden-input {
+  visibility: hidden;
+}
+
+.i-have-i-want {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 10px
+}

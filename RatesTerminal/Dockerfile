@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["RatesTerminal/RatesTerminal.csproj", "RatesTerminal/"]
 COPY ["RateAmData/RateAmData.csproj", "RateAmData/"]
 COPY ["RateAmLib/RateAmLib.csproj", "RateAmLib/"]
-RUN dotnet restore "./RatesTerminal/./RatesTerminal.csproj"
+RUN dotnet restore "./RatesTerminal/RatesTerminal.csproj"
 COPY . .
 WORKDIR "/src/RatesTerminal"
 RUN dotnet build "./RatesTerminal.csproj" -c $BUILD_CONFIGURATION -o /app/build

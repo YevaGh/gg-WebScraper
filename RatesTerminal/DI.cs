@@ -15,13 +15,18 @@ namespace RatesTerminal
         {
 
             services.AddSingleton<IConfiguration>(builderConfig);
+            services.AddDbContext<RateAmDataContext>();
+            services.AddScoped<RedisCache>();
             services.AddScoped<IRatesRepository, RatesRepository>();
+            services.AddScoped<ICurrenciesRepository, CurrenciesRepository>();
+            services.AddScoped<IBanksRepository, BanksRepository>();
             services.AddScoped<IRateService, RateService>();
+            services.AddScoped<IBankService, BankService>();
+            services.AddScoped<ICurrencyService, CurrencyService>();
             services.AddScoped<IWebClient, SeleniumWebClient>();
             services.AddScoped<IXmlParser, XmlDocumentParser>();
             services.AddScoped<IHtmlTableParser, HtmlTableParser>();
             services.AddScoped<ITableToObjectParser, TableToObjectParser>();
-            services.AddDbContext<RateAmDataContext>();
             services.AddScoped<WorkerService>();
 
             return services;
@@ -32,14 +37,22 @@ namespace RatesTerminal
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<IConfiguration>(builderConfig);
+                    services.AddDbContext<RateAmDataContext>();
+                    services.AddScoped<RedisCache>();
                     services.AddScoped<IRatesRepository, RatesRepository>();
+                    services.AddScoped<ICurrenciesRepository, CurrenciesRepository>();
+                    services.AddScoped<IBanksRepository, BanksRepository>();
                     services.AddScoped<IRateService, RateService>();
+                    services.AddScoped<IBankService, BankService>();
+                    services.AddScoped<BankService>();
+                    services.AddScoped<CurrencyService>();
+                    services.AddScoped<ICurrencyService, CurrencyService>();
                     services.AddScoped<IWebClient, SeleniumWebClient>();
                     services.AddScoped<IXmlParser, XmlDocumentParser>();
                     services.AddScoped<IHtmlTableParser, HtmlTableParser>();
                     services.AddScoped<ITableToObjectParser, TableToObjectParser>();
-                    services.AddDbContext<RateAmDataContext>();
                     services.AddScoped<WorkerService>();
+
                 });
     }
 

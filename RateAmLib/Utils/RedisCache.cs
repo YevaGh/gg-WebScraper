@@ -10,22 +10,13 @@ namespace RateAmLib.Utils
     }
     public class RedisCache : IRedisCache
     {
-        private static IDatabase _db;
+        public IDatabase _db;
 
-        private static RedisCache instance;
-        public static RedisCache GetRedisCache()
+        public RedisCache(IConfiguration builder)
         {
-            if (instance == null)
-            {
-                instance = new RedisCache();
-                _db = GetDatabase();
-            }
-            return instance;
-        }
-
-
-        private RedisCache() {
-        GetRedisCache();
+            var connectionString = builder.GetConnectionString("redis");
+            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(connectionString);
+            _db = redis.GetDatabase();
         }
         public string Get(string key)
         {
@@ -37,18 +28,5 @@ namespace RateAmLib.Utils
             _db.StringSetAsync(key, value).Wait();
         }
 
-        private static IDatabase GetDatabase()
-        {
-            var builder = new ConfigurationBuilder()
-                               .SetBasePath(Directory.GetCurrentDirectory())
-                               .AddJsonFile("appsettings.json")
-                               .Build();
-
-            // var connectionString = builder.GetConnectionString("redis");
-            var connectionString = "redis: 6379,abortConnect=false";
-            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(connectionString);
-            return redis.GetDatabase();
-
-        }
     }
 }

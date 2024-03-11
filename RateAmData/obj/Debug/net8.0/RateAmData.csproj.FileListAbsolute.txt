@@ -13,3 +13,18 @@ C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Debug\net8.0\RateAmData.pdb
 C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Debug\net8.0\ref\RateAmData.dll
 C:\Users\khaza\source\repos\RatesAm\RateAmData\bin\Debug\net8.0\RateAmData.runtimeconfig.json
 C:\Users\khaza\source\repos\RatesAm\RateAmData\obj\Debug\net8.0\RateAmData.genruntimeconfig.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\bin\Debug\net8.0\RateAmData.deps.json
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\bin\Debug\net8.0\RateAmData.runtimeconfig.json
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\bin\Debug\net8.0\RateAmData.dll
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\bin\Debug\net8.0\RateAmData.pdb
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.csproj.AssemblyReference.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.AssemblyInfoInputs.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.AssemblyInfo.cs
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.csproj.CoreCompileInputs.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.sourcelink.json
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.dll
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\refint\RateAmData.dll
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.pdb
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\RateAmData.genruntimeconfig.cache
+C:\Users\Yeva Ghazaryan\source\repos\RateAm\RateAmData\obj\Debug\net8.0\ref\RateAmData.dll

@@ -3,7 +3,6 @@ import { Rate } from '../models/rate';
 import { Currency } from '../models/currency';
 import { Bank } from '../models/bank';
 import { RatesService } from '../service/rates.service';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 
 @Component({
@@ -25,10 +24,10 @@ export class ChartComponent implements OnInit, AfterViewInit {
     this.rateService.getAllRates().subscribe(
       (res: Rate[]) => {
         this.allRates = res;
-       /* this.chartData = this.allRates.filter(r => r.currencyId == 1).map(item => {
-          return { date: item.publishDate.toString(), rate: item.buyRate };
-        }) as { date: string, rate: number }[];
-*/
+        /* this.chartData = this.allRates.filter(r => r.currencyId == 1).map(item => {
+           return { date: item.publishDate.toString(), rate: item.buyRate };
+         }) as { date: string, rate: number }[];
+ */
         const uniqueDatesMap = this.allRates
           .filter(r => r.currencyId == 1)
           .reduce((acc, item) => {
@@ -58,23 +57,8 @@ export class ChartComponent implements OnInit, AfterViewInit {
       valueType: 'Category'
     };
 
-  
-
-
-
   }
   ngAfterViewInit(): void {
-
-
-    //  [
-    //  { date: 'Jan', rate: 401 }, { date: 'Feb', rate: 280 },
-    //  { date: 'Mar', rate: 402 }, { date: 'Apr', rate: 320 },
-    //  { date: 'May', rate: 403 }, { date: 'Jun', rate: 320 },
-    //  { date: 'Jul', rate: 405.50 }, { date: 'Aug', rate: 550 },
-    //  { date: 'Sep', rate: 380 }, { date: 'Oct', rate: 300 },
-    //  { date: 'Nov', rate: 250 }, { date: 'Dec', rate: 320 }
-    //];
-
   }
 
 }
