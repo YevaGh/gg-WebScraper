@@ -101,7 +101,7 @@ services:
   myterminal:
     image: yevka/rateam-myterminal:latest
     environment:
-      - ConnectionStrings__RateDb=Host=postgres;Port=6543;Database=fromdocker;Username=postgres;Password=password
+      - ConnectionStrings__RateDb=Host=postgres;Port=5432;Database=fromdocker;Username=postgres;Password=password
       - ConnectionStrings__Redis=Host=myredis;Port=6379
     depends_on:
       - postgres
